@@ -17,21 +17,24 @@ docker run -d --name <nombre contenedor> --mount type=bind,source=<ruta carpeta 
 ### Crear un contenedor con la imagen nginx:alpine, mapear todos por puertos, para la ruta carpeta host colocar el directorio en donde se encuentra la carpeta html en tu computador y para la ruta carpeta contenedor: /usr/share/nginx/html (esta ruta se obtiene al revisar la documentación de la imagen)
 ![Volúmenes](volumen-host.PNG)
 # COMPLETAR CON EL COMANDO
-
+docker run -d --name nginx -p 80:80 -v "C:\Users\Ronny\Documents\nginx\html:/usr/share/nginx/html" nginx:alpine
 ### ¿Qué sucede al ingresar al servidor de nginx?
 # COMPLETAR CON LA RESPUESTA A LA PREGUNTA
-
+Al ingresar al servidor de Nginx mediante el navegador aparece el error 403 Forbidden 
+porque la carpeta html del host está vacía y no contiene un archivo index.html que pueda mostrar.
 ### ¿Qué pasa con el archivo index.html del contenedor?
 # COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+El archivo index.html del host se monta en el directorio /usr/share/nginx/html del contenedor mediante un bind mount. 
 
 ### Ir a https://html5up.net/ y descargar un template gratuito, descomprirlo dentro de tu computador en la carpeta html
 ### ¿Qué sucede al ingresar al servidor de nginx?
 # COMPLETAR CON LA RESPUESTA A LA PREGUNTA
-
+Al ingresar a http://localhost, se visualiza la página web del template Forty descargado de HTML5 UP. Porque los archivos del sitio web están dentro de la carpeta html del host, que está vinculada al directorio /usr/share/nginx/html del contenedor.
 ### Eliminar el contenedor
 # COMPLETAR CON EL COMANDO
-
+docker rm -f nginx
 ### ¿Qué sucede al crear nuevamente un contenedor montado al directorio definidos anteriormente?
 # COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+Al crear nuevamente el contenedor y montar el mismo directorio del computador los archivos del template Forty se conservan porque están almacenados en el host y no en el contenedor. Entonces al ingresar a la pagina, Nginx muestra nuevamente la página web de Forty. 
 
 
