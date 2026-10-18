@@ -70,14 +70,16 @@ docker run -d --name server-drupal --publish published=9700,target=80 -v <nombre
 
 ### Ingrese al server-drupal y siga el paso a paso para la instalación.
 # COMPLETAR CON UNA CAPTURA DE PANTALLA DEL PASO 4
+<img width="1891" height="951" alt="imagen" src="https://github.com/user-attachments/assets/b0565f0f-db9f-40bb-8835-02bf59f08f25" />
 
 _La instalación puede tomar varios minutos, mientras espera realice un diagrama de los contenedores que ha creado en este apartado._
 
 # COMPLETAR CON EL DIAGRAMA SOLICITADO
+<img width="597" height="491" alt="imagen" src="https://github.com/user-attachments/assets/3135d7a6-36ac-4cbe-b9f9-e526cc12abc8" />
 
 ### Eliminar un volumen específico
 ```
-docker volume rm <nombre volumen>
+docker volume rm vol-postgres
 ```
 **Considerar**
 Datos Persistentes: Asegúrate de que el volumen no contiene datos críticos antes de eliminarlo, ya que esta operación no se puede deshacer.
